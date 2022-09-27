@@ -6,7 +6,7 @@
 /*   By: ajones <ajones@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 15:03:50 by ajones            #+#    #+#             */
-/*   Updated: 2022/09/28 01:16:34 by ajones           ###   ########.fr       */
+/*   Updated: 2022/09/28 01:59:32 by ajones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,30 +18,32 @@ void	init_data(t_filler *data)
 	data->m_width = 0;
 	data->m_height = 0;
 	data->got_map = 0;
+	data->map = NULL;
 }
-
-/* maybe need to make into int function for error returns*/
 
 int	get_map_data(t_filler *data, char *line)
 {
+	if (data->got_map == 0)
+	{
+		data->m_height = ft_atoi(ft_strchr(line, ' '));
+		data->m_width = ft_atoi(ft_strrchr(line, ' '));
+		if (!data->m_height || !data->m_width)
+			return (0);
+		return (1);
+	}
+	if (manage_map(data, line))
+		return (1);
+	return (0);
+}
+
+/* 
 	char	*map_width;
 	char	*map_height;
 
-	if (data->got_map == 0)
-	{
 		map_height = ft_strchr(line, ' ');
 		map_width = ft_strrchr(line, ' ');
-		data->m_height = ft_atoi(map_height);
-		data->m_width = ft_atoi(map_width);
-		if (!data->m_height || !data->m_width)
-			return (0);
-		data->got_map = 1;
-		return (1);
-	}
-	return (manage_map(data, line));
-}
 
-/* 	free(map_height);
+	free(map_height);
 	free(map_width);  ??? */
 
 int	get_player_num(t_filler *data, char *line)
