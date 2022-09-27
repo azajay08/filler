@@ -6,15 +6,14 @@
 /*   By: ajones <ajones@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 14:18:14 by ajones            #+#    #+#             */
-/*   Updated: 2022/09/27 15:59:03 by ajones           ###   ########.fr       */
+/*   Updated: 2022/09/28 01:02:48 by ajones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/filler.h"
 
-int	manage_map(char *line, t_filler *data)
+int	manage_map(t_filler *data, char *line)
 {
-	if (!data->player_num || !data->m_height || !data->m_height)
-		return (0);
+	
 	return (1);
 }

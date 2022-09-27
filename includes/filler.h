@@ -6,7 +6,7 @@
 /*   By: ajones <ajones@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 14:15:34 by ajones            #+#    #+#             */
-/*   Updated: 2022/09/28 00:33:37 by ajones           ###   ########.fr       */
+/*   Updated: 2022/09/28 01:16:31 by ajones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,12 @@ typedef struct s_filler
 
 int				main(void);
 void			wipe_down(t_filler *data, char *line, int ret);
-int				manage_map(char *line, t_filler *data);
+int				manage_map(t_filler *data, char *line);
+int				get_piece_data(t_filler *data, char *line);
+
+
+int				check_piece(t_filler *data);
+
+int				game_over(t_filler *data, char *line, int ret);
 
 #endif

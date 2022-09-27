@@ -6,7 +6,7 @@
 /*   By: ajones <ajones@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 15:03:50 by ajones            #+#    #+#             */
-/*   Updated: 2022/09/28 00:38:05 by ajones           ###   ########.fr       */
+/*   Updated: 2022/09/28 01:16:34 by ajones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,24 +17,28 @@ void	init_data(t_filler *data)
 	data->player_num = 0;
 	data->m_width = 0;
 	data->m_height = 0;
-	data->got_map = 1;
+	data->got_map = 0;
 }
 
 /* maybe need to make into int function for error returns*/
 
-int	get_map_size(t_filler *data, char *line)
+int	get_map_data(t_filler *data, char *line)
 {
 	char	*map_width;
 	char	*map_height;
 
-	map_height = ft_strchr(line, ' ');
-	map_width = ft_strrchr(line, ' ');
-	data->m_height = ft_atoi(map_height);
-	data->m_width = ft_atoi(map_width);
-	if (!data->m_height || !data->m_width)
-		return (0);
-	data->got_map = 1;
-	return (1);
+	if (data->got_map == 0)
+	{
+		map_height = ft_strchr(line, ' ');
+		map_width = ft_strrchr(line, ' ');
+		data->m_height = ft_atoi(map_height);
+		data->m_width = ft_atoi(map_width);
+		if (!data->m_height || !data->m_width)
+			return (0);
+		data->got_map = 1;
+		return (1);
+	}
+	return (manage_map(data, line));
 }
 
 /* 	free(map_height);
@@ -76,10 +80,12 @@ int	main(void)
 			break ;
 		if (ret == 1 && ft_strstr(line, "$$$ exec") && !data.player_num)
 			ret = get_player_num(&data, line);
-		if (ret == 1 && ft_strstr(line, "Plateau") && !data.got_map)
-			ret = get_map_size(&data, line);
-		if (ret == 1 && !manage_map(line, &data))
-			ret = 0;
+		if (ret == 1 && ft_strstr(line, "Plateau"))
+			ret = get_map_data(&data, line);
+		if (ret == 1 && ft_strstr(line, "Piece"))
+			ret = get_piece_data(&data, line);
+		if (ret == 1 && !check_piece(&data))
+			return (game_over(&data, line, ret));
 		ft_strdel(&line);
 	}
 	wipe_down(&data, line, ret);
