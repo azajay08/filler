@@ -6,7 +6,7 @@
 /*   By: ajones <ajones@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 14:15:34 by ajones            #+#    #+#             */
-/*   Updated: 2022/09/27 14:26:17 by ajones           ###   ########.fr       */
+/*   Updated: 2022/09/28 00:33:37 by ajones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ typedef struct s_filler
 }				t_filler;
 
 int				main(void);
-void			wipe_down(t_filler *data, char *line);
+void			wipe_down(t_filler *data, char *line, int ret);
 int				manage_map(char *line, t_filler *data);
 
 #endif
