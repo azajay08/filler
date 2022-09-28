@@ -6,7 +6,7 @@
 /*   By: ajones <ajones@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 14:15:34 by ajones            #+#    #+#             */
-/*   Updated: 2022/09/28 01:44:42 by ajones           ###   ########.fr       */
+/*   Updated: 2022/09/28 15:02:19 by ajones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,51 @@
 # define FALSE 0
 
 # include "../libft/libft.h"
+
+typedef struct s_filler
+{
+	int			player_num;
+	char		goody;
+	char		baddy;
+	int			m_height;
+	int			m_width;
+	int			got_map;
+	int			**piece;
+	int			**map;
+}				t_filler;
+
+int				main(void);
+
+int				manage_map(t_filler *data, char *line);
+
+int				get_piece_data(t_filler *data, char *line);
+
+int				check_piece(t_filler *data);
+
+int				game_over(t_filler *data, char *line, int ret);
+
+void			wipe_down(t_filler *data, char *line, int ret);
+
+int				check_x(int c);
+int				check_o(int c);
+
+
+
+#endif
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // typedef struct s_coords
 // {
@@ -36,31 +81,3 @@
 // 	int			p_width;
 // 	char		**p_piece;
 // }				t_piece;
-
-typedef struct s_filler
-{
-	int			player_num;
-	char		goody;
-	char		baddy;
-	int			m_height;
-	int			m_width;
-	int			got_map;
-	int			*piece;
-	int			**map;
-}				t_filler;
-
-int				main(void);
-
-int				manage_map(t_filler *data, char *line);
-
-int				get_piece_data(t_filler *data, char *line);
-
-int				check_piece(t_filler *data);
-
-int				game_over(t_filler *data, char *line, int ret);
-
-void			wipe_down(t_filler *data, char *line, int ret);
-
-
-
-#endif

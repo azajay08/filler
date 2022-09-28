@@ -6,7 +6,7 @@
 /*   By: ajones <ajones@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 15:03:50 by ajones            #+#    #+#             */
-/*   Updated: 2022/09/28 01:59:32 by ajones           ###   ########.fr       */
+/*   Updated: 2022/09/28 14:06:59 by ajones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	init_data(t_filler *data)
 	data->m_height = 0;
 	data->got_map = 0;
 	data->map = NULL;
+	data->piece = NULL;
 }
 
 int	get_map_data(t_filler *data, char *line)
