@@ -6,7 +6,7 @@
 /*   By: ajones <ajones@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 00:59:12 by ajones            #+#    #+#             */
-/*   Updated: 2022/09/29 01:59:01 by ajones           ###   ########.fr       */
+/*   Updated: 2022/09/29 02:02:08 by ajones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,10 @@ void	piece_value(t_filler *data, int y, char *line)
 	while (x < data->p_width)
 	{
 		if (line[x] == '*')
+		{
+			
+		}
+		x++;
 	}
 }
 
