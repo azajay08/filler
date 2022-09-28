@@ -6,7 +6,7 @@
 /*   By: ajones <ajones@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 00:59:12 by ajones            #+#    #+#             */
-/*   Updated: 2022/09/29 01:23:23 by ajones           ###   ########.fr       */
+/*   Updated: 2022/09/29 01:28:08 by ajones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	reset_piece(t_filler *data)
 	data->p_width = 0;
 }
 
-int	get_piece_data(t_filler *data, char *line)
+int	manage_piece(t_filler *data)
 {
 	
 	return (1);

@@ -6,7 +6,7 @@
 /*   By: ajones <ajones@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 14:15:34 by ajones            #+#    #+#             */
-/*   Updated: 2022/09/29 01:23:39 by ajones           ###   ########.fr       */
+/*   Updated: 2022/09/29 01:28:45 by ajones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,21 +34,19 @@ typedef struct s_filler
 
 int				main(void);
 
-int				manage_map(t_filler *data, char *line);
+int				manage_map(t_filler *data);
 
-int				get_piece_data(t_filler *data, char *line);
+void			set_heatmap(t_filler *data);
+
+void			reset_piece(t_filler *data);
+
+int				manage_piece(t_filler *data);
 
 int				check_piece(t_filler *data);
 
 int				game_over(t_filler *data, char *line, int ret);
 
 void			wipe_down(t_filler *data, char *line, int ret);
-
-void			set_heatmap(t_filler *data);
-
-void			reset_piece(t_filler *data);
-
-
 
 #endif
 

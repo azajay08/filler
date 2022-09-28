@@ -6,7 +6,7 @@
 /*   By: ajones <ajones@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 15:03:50 by ajones            #+#    #+#             */
-/*   Updated: 2022/09/29 01:23:57 by ajones           ###   ########.fr       */
+/*   Updated: 2022/09/29 01:27:34 by ajones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,12 @@ void	init_data(t_filler *data)
 int get_piece_data(t_filler *data, char *line)
 {
 	reset_piece(data);
+	data->p_height = ft_atoi(ft_strchr(line, ' '));
+	data->p_width = ft_atoi(ft_strrchr(line, ' '));
+	if (!data->p_height || !data->p_width)
+			return (0);
+	if (manage_piece(data))
+		return (1);
 	return (0);
 }
 
@@ -37,7 +43,7 @@ int	get_map_data(t_filler *data, char *line)
 			return (0);
 		return (1);
 	}
-	if (manage_map(data, line))
+	if (manage_map(data))
 		return (1);
 	return (0);
 }
