@@ -6,7 +6,7 @@
 /*   By: ajones <ajones@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 15:03:50 by ajones            #+#    #+#             */
-/*   Updated: 2022/09/28 14:06:59 by ajones           ###   ########.fr       */
+/*   Updated: 2022/09/29 00:45:20 by ajones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,16 +36,6 @@ int	get_map_data(t_filler *data, char *line)
 		return (1);
 	return (0);
 }
-
-/* 
-	char	*map_width;
-	char	*map_height;
-
-		map_height = ft_strchr(line, ' ');
-		map_width = ft_strrchr(line, ' ');
-
-	free(map_height);
-	free(map_width);  ??? */
 
 int	get_player_num(t_filler *data, char *line)
 {

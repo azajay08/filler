@@ -6,7 +6,7 @@
 /*   By: ajones <ajones@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 14:15:34 by ajones            #+#    #+#             */
-/*   Updated: 2022/09/28 15:02:19 by ajones           ###   ########.fr       */
+/*   Updated: 2022/09/29 00:43:32 by ajones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,7 @@ int				game_over(t_filler *data, char *line, int ret);
 
 void			wipe_down(t_filler *data, char *line, int ret);
 
-int				check_x(int c);
-int				check_o(int c);
+void			set_heatmap(t_filler *data);
 
 
 

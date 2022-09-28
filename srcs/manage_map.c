@@ -6,7 +6,7 @@
 /*   By: ajones <ajones@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 14:18:14 by ajones            #+#    #+#             */
-/*   Updated: 2022/09/28 23:14:30 by ajones           ###   ########.fr       */
+/*   Updated: 2022/09/28 23:32:33 by ajones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,6 @@ void	map_value(t_filler *data, int y, char *line)
 		y++;
 	}
 }
-
-/*if (check_x(line[y]) && check_x(data->goody))
-			data->map[x][y] = -1;
-		else if (check_o(line[y]) && check_o(data->baddy))
-			data->map[x][y] = -1;*/
 
 void	read_map(t_filler *data)
 {
@@ -84,6 +79,9 @@ int	manage_map(t_filler *data, char *line)
 	if (!data->map)
 		return (0);
 	read_map(data);
+	if (!data->map)
+		return (0);
+	heatmap_value(data);
 	data->got_map = 1;
 	return (1);
 }

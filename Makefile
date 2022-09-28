@@ -6,11 +6,11 @@
 #    By: ajones <ajones@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/07 14:18:25 by ajones            #+#    #+#              #
-#    Updated: 2022/09/28 01:17:09 by ajones           ###   ########.fr        #
+#    Updated: 2022/09/28 23:28:41 by ajones           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS := main.c clean.c manage_map.c manage_piece.c put_piece.c\
+SRCS := main.c clean.c manage_map.c manage_map2.c manage_piece.c put_piece.c \
 
 
 NAME := ajones.filler
