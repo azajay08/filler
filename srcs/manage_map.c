@@ -6,25 +6,25 @@
 /*   By: ajones <ajones@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 14:18:14 by ajones            #+#    #+#             */
-/*   Updated: 2022/09/28 15:07:25 by ajones           ###   ########.fr       */
+/*   Updated: 2022/09/28 23:14:30 by ajones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/filler.h"
 
-void	map_value(t_filler *data, int x, char *line)
+void	map_value(t_filler *data, int y, char *line)
 {
-	int	y;
+	int	x;
 
-	y = 0;
-	while (y < data->m_width)
+	x = 0;
+	while (x < data->m_width)
 	{
-		if (line[y] == data->goody || line[y] == data->goody + 32)
-			data->map[x][y] = -1;
-		else if (line[y] == data->baddy || line[y] == data->baddy + 32)
-			data->map[x][y] = -2;
+		if (line[x] == data->goody || line[x] == data->goody + 32)
+			data->map[y][x] = -1;
+		else if (line[x] == data->baddy || line[x] == data->baddy + 32)
+			data->map[y][x] = -2;
 		else
-			data->map [x][y] = 0;
+			data->map [y][x] = 0;
 		y++;
 	}
 }
@@ -44,8 +44,9 @@ void	read_map(t_filler *data)
 	ft_strdel(&line);
 	while (get_next_line(0, &line) > 0 && line_count < data->m_height)
 	{
-		line = ft_strchr(line, ' ' + 1);
+		line = ft_strchr(line, ' ') + 1;
 		map_value(data, line_count, line);
+		ft_strdel(&line);
 		line_count++;
 	}
 }
@@ -56,22 +57,22 @@ int	**make_map(t_filler *data)
 	int	x;
 	int	y;
 
-	x = 0;
+	y = 0;
 	map = (int **)malloc(sizeof(int *) * data->m_height);
 	if (!map)
 		return (NULL);
-	while (x < data->m_height)
+	while (y < data->m_height)
 	{
-		map[x] = (int *)malloc(sizeof(int) * data->m_width);
-		if (!map[x])
+		map[y] = (int *)malloc(sizeof(int) * data->m_width);
+		if (!map[y])
 			return (NULL);
-		y = 0;
-		while (y < data->m_width)
+		x = 0;
+		while (x < data->m_width)
 		{
-			map[x][y] = 0;
-			y++;
+			map[y][x] = 0;
+			x++;
 		}
-		x++;
+		y++;
 	}
 	return (map);
 }
@@ -83,7 +84,6 @@ int	manage_map(t_filler *data, char *line)
 	if (!data->map)
 		return (0);
 	read_map(data);
-	
 	data->got_map = 1;
 	return (1);
 }
