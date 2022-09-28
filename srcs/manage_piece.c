@@ -6,11 +6,13 @@
 /*   By: ajones <ajones@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 00:59:12 by ajones            #+#    #+#             */
-/*   Updated: 2022/09/29 02:02:08 by ajones           ###   ########.fr       */
+/*   Updated: 2022/09/29 02:14:49 by ajones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/filler.h"
+
+/* decide what value to assgin pieces */
 
 void	piece_value(t_filler *data, int y, char *line)
 {
@@ -21,7 +23,7 @@ void	piece_value(t_filler *data, int y, char *line)
 	{
 		if (line[x] == '*')
 		{
-			
+			data->piece[y][x] = 1; /* needs changing */
 		}
 		x++;
 	}
@@ -33,7 +35,7 @@ void	read_piece(t_filler *data)
 	int		line_count;
 
 	line_count = 0;
-	while(get_next_line(0, &line) > 0 && line_count < data->p_height)
+	while (get_next_line(0, &line) > 0 && line_count < data->p_height)
 	{
 		piece_value(data, line_count, line);
 		ft_strdel(&line);
