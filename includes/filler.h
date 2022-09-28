@@ -6,7 +6,7 @@
 /*   By: ajones <ajones@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 14:15:34 by ajones            #+#    #+#             */
-/*   Updated: 2022/09/29 00:43:32 by ajones           ###   ########.fr       */
+/*   Updated: 2022/09/29 01:23:39 by ajones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ typedef struct s_filler
 	char		baddy;
 	int			m_height;
 	int			m_width;
+	int			p_height;
+	int			p_width;
 	int			got_map;
 	int			**piece;
 	int			**map;
@@ -43,6 +45,8 @@ int				game_over(t_filler *data, char *line, int ret);
 void			wipe_down(t_filler *data, char *line, int ret);
 
 void			set_heatmap(t_filler *data);
+
+void			reset_piece(t_filler *data);
 
 
 
