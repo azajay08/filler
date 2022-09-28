@@ -6,14 +6,14 @@
 /*   By: ajones <ajones@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 01:07:38 by ajones            #+#    #+#             */
-/*   Updated: 2022/09/29 02:25:32 by ajones           ###   ########.fr       */
+/*   Updated: 2022/09/29 02:41:32 by ajones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/filler.h"
 
-/*int	check_piece(t_filler *data)
+int	check_piece(t_filler *data)
 {
 
 	return (1);
-}*/
+}
