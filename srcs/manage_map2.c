@@ -6,7 +6,7 @@
 /*   By: ajones <ajones@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 23:27:39 by ajones            #+#    #+#             */
-/*   Updated: 2022/09/29 00:44:01 by ajones           ###   ########.fr       */
+/*   Updated: 2022/09/29 17:25:12 by ajones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,14 @@ int	temp_calc(int y, int x, int co_y, int co_x)
 		value_x = co_x - x;
 	return (value_y + value_x);
 }
+
+/*
+** This comes into this function with the coordinates of the empty place
+** and compares it with the coordinates of an enemy place. Depending on 
+** what the coordinate values are for each, it gets the heatmap value using the
+** temp_calc function. the smallest value form the calculations will be set
+** as that empty spaces heatmap value
+*/
 
 int	heatmap_value(t_filler *data, int co_y, int co_x)
 {
@@ -57,6 +65,11 @@ int	heatmap_value(t_filler *data, int co_y, int co_x)
 	}
 	return (value);
 }
+
+/*
+** This checks for places in the map that has the value of 0 (empty), so that
+** it can give it a heatmap value in the next function
+*/
 
 void	set_heatmap(t_filler *data)
 {

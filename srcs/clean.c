@@ -6,7 +6,7 @@
 /*   By: ajones <ajones@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 14:43:16 by ajones            #+#    #+#             */
-/*   Updated: 2022/09/28 01:20:28 by ajones           ###   ########.fr       */
+/*   Updated: 2022/09/29 17:44:54 by ajones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ void	wipe_down(t_filler *data, char *line, int ret)
 
 int	game_over(t_filler *data, char *line, int ret)
 {
-
 	/* printf statement for the 0, 0 coords to say im out the game */
 	wipe_down(data, line, ret);
+	ft_printf("[%i, %i]", 0, 0);
 	return (0);
 }
