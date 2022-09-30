@@ -6,7 +6,7 @@
 /*   By: ajones <ajones@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 14:15:34 by ajones            #+#    #+#             */
-/*   Updated: 2022/09/30 23:44:13 by ajones           ###   ########.fr       */
+/*   Updated: 2022/10/01 00:42:11 by ajones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,9 @@ void			wipe_down(t_filler *data, char *line, int ret);
 
 void			init_piece(t_piece *piece);
 
-void			init_data(t_filler *data);
+void			init_data(t_filler *data, t_piece *piece);
+
+void			reset_data(t_filler *data, t_piece *piece);
 
 #endif
 

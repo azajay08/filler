@@ -6,7 +6,7 @@
 /*   By: ajones <ajones@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 15:03:50 by ajones            #+#    #+#             */
-/*   Updated: 2022/09/30 23:44:17 by ajones           ###   ########.fr       */
+/*   Updated: 2022/10/01 01:54:51 by ajones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int get_piece_data(t_filler *data, t_piece *piece, char *line)
 {
-	init_piece(piece);
+	reset_data(data, piece);
 	piece->p_height = ft_atoi(ft_strchr(line, ' '));
 	piece->p_width = ft_atoi(ft_strrchr(line, ' '));
 	if (!piece->p_height || !piece->p_width)
@@ -69,7 +69,7 @@ int	main(void)
 	int			ret;
 
 	ret = 1;
-	init_data(&data);
+	init_data(&data, &piece);
 	while (ret == 1)
 	{
 		if (get_next_line(0, &line) != 1)
