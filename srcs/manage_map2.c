@@ -6,7 +6,7 @@
 /*   By: ajones <ajones@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 23:27:39 by ajones            #+#    #+#             */
-/*   Updated: 2022/09/29 17:25:12 by ajones           ###   ########.fr       */
+/*   Updated: 2022/09/30 23:10:15 by ajones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int	heatmap_value(t_filler *data, int co_y, int co_x)
 			if (data->map[y][x] == -2)
 			{
 				temp = temp_calc(y, x, co_y, co_x);
-				if (temp < value || value == 0)
+				if (temp < value || value == NO_VALUE)
 					value = temp;
 			}
 			x++;

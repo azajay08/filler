@@ -6,29 +6,20 @@
 /*   By: ajones <ajones@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 15:03:50 by ajones            #+#    #+#             */
-/*   Updated: 2022/09/29 02:41:06 by ajones           ###   ########.fr       */
+/*   Updated: 2022/09/30 23:44:17 by ajones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/filler.h"
 
-void	init_data(t_filler *data)
+int get_piece_data(t_filler *data, t_piece *piece, char *line)
 {
-	data->player_num = 0;
-	data->m_width = 0;
-	data->m_height = 0;
-	data->got_map = 0;
-	data->map = NULL;
-}
-
-int get_piece_data(t_filler *data, char *line)
-{
-	reset_piece(data);
-	data->p_height = ft_atoi(ft_strchr(line, ' '));
-	data->p_width = ft_atoi(ft_strrchr(line, ' '));
-	if (!data->p_height || !data->p_width)
-			return (0);
-	if (manage_piece(data))
+	init_piece(piece);
+	piece->p_height = ft_atoi(ft_strchr(line, ' '));
+	piece->p_width = ft_atoi(ft_strrchr(line, ' '));
+	if (!piece->p_height || !piece->p_width)
+		return (0);
+	if (manage_piece(piece, data))
 		return (1);
 	return (0);
 }
@@ -74,6 +65,7 @@ int	main(void)
 {
 	char		*line;
 	t_filler	data;
+	t_piece		piece;
 	int			ret;
 
 	ret = 1;
@@ -87,8 +79,8 @@ int	main(void)
 		if (ret == 1 && ft_strstr(line, "Plateau"))
 			ret = get_map_data(&data, line);
 		if (ret == 1 && ft_strstr(line, "Piece"))
-			ret = get_piece_data(&data, line);
-		if (ret == 1 && !check_piece(&data))
+			ret = get_piece_data(&data, &piece, line);
+		if (ret == 1 && !check_piece(&data, &piece))
 			return (game_over(&data, line, ret));
 		ft_strdel(&line);
 	}

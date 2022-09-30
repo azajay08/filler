@@ -1,16 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   clean.c                                            :+:      :+:    :+:   */
+/*   init_clean.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ajones <ajones@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 14:43:16 by ajones            #+#    #+#             */
-/*   Updated: 2022/09/29 23:11:06 by ajones           ###   ########.fr       */
+/*   Updated: 2022/09/30 23:43:05 by ajones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/filler.h"
+
+void	init_piece(t_piece *piece)
+{
+	if (piece->p_map)
+		free(piece->p_map);
+	piece->p_map = NULL;
+	piece->p_val = 0;
+	piece->p_height = 0;
+	piece->p_width = 0;
+	piece->best_val = -1;
+	piece->best_y = -1;
+	piece->best_x = -1;
+	piece->min_y = -1;
+	piece->max_y = -1;
+	piece->min_x = -1;
+	piece->max_x = -1;
+}
+
+void	init_data(t_filler *data)
+{
+	data->player_num = 0;
+	data->m_width = 0;
+	data->m_height = 0;
+	data->got_map = 0;
+	data->h_boundary = 0;
+	data->w_boundary = 0;
+	data->map = NULL;
+}
 
 void	wipe_down(t_filler *data, char *line, int ret)
 {
