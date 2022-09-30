@@ -6,7 +6,7 @@
 /*   By: ajones <ajones@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 14:43:16 by ajones            #+#    #+#             */
-/*   Updated: 2022/09/29 17:44:54 by ajones           ###   ########.fr       */
+/*   Updated: 2022/09/29 23:11:06 by ajones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,3 +31,4 @@ int	game_over(t_filler *data, char *line, int ret)
 	ft_printf("[%i, %i]", 0, 0);
 	return (0);
 }
+

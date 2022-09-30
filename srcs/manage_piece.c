@@ -6,13 +6,27 @@
 /*   By: ajones <ajones@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 00:59:12 by ajones            #+#    #+#             */
-/*   Updated: 2022/09/29 02:14:49 by ajones           ###   ########.fr       */
+/*   Updated: 2022/09/30 01:30:41 by ajones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/filler.h"
 
-/* decide what value to assgin pieces */
+/* decide what value to assgin pieces
+** get the max and min x and y for the piece, use
+** as a comparison on valid places
+**
+** check everything about it being valid first
+**
+** check the overall value
+**
+** assign its overall value into best_value
+** assign coords into best_x best_y
+**
+** move along to the next valid place and only
+** replace the values if new value is smaller than
+** best_value
+ */
 
 void	piece_value(t_filler *data, int y, char *line)
 {
@@ -69,15 +83,6 @@ int	**make_piece(t_filler *data)
 	return (piece);
 }
 
-void	reset_piece(t_filler *data)
-{
-	if (data->piece)
-		free(data->piece);
-	data->piece = NULL;
-	data->p_height = 0;
-	data->p_width = 0;
-}
-
 int	manage_piece(t_filler *data)
 {
 	data->piece = make_piece(data);
@@ -85,4 +90,13 @@ int	manage_piece(t_filler *data)
 		return (0);
 	read_piece(data);
 	return (1);
+}
+
+void	reset_piece(t_filler *data)
+{
+	if (data->piece)
+		free(data->piece);
+	data->piece = NULL;
+	data->p_height = 0;
+	data->p_width = 0;
 }

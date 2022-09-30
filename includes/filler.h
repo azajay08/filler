@@ -6,7 +6,7 @@
 /*   By: ajones <ajones@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 14:15:34 by ajones            #+#    #+#             */
-/*   Updated: 2022/09/29 01:28:45 by ajones           ###   ########.fr       */
+/*   Updated: 2022/09/30 01:04:58 by ajones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,11 @@ typedef struct s_filler
 	int			got_map;
 	int			**piece;
 	int			**map;
+
+	int			best_y;
+	int			best_x;
+	int			best_val;
+	
 }				t_filler;
 
 int				main(void);

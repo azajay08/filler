@@ -6,7 +6,7 @@
 /*   By: ajones <ajones@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 01:07:38 by ajones            #+#    #+#             */
-/*   Updated: 2022/09/29 02:41:32 by ajones           ###   ########.fr       */
+/*   Updated: 2022/09/29 23:11:49 by ajones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,6 @@
 int	check_piece(t_filler *data)
 {
 
+	free(data->piece);
 	return (1);
 }
