@@ -6,7 +6,7 @@
 /*   By: ajones <ajones@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 14:15:34 by ajones            #+#    #+#             */
-/*   Updated: 2022/10/01 00:42:11 by ajones           ###   ########.fr       */
+/*   Updated: 2022/10/01 03:08:07 by ajones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # define NO_VALUE 0
 # define NOT_SET -1
+# define NOT_VALID 0
 
 # include "../libft/libft.h"
 

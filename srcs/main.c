@@ -6,7 +6,7 @@
 /*   By: ajones <ajones@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 15:03:50 by ajones            #+#    #+#             */
-/*   Updated: 2022/10/01 01:54:51 by ajones           ###   ########.fr       */
+/*   Updated: 2022/10/01 01:57:38 by ajones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ int	main(void)
 			ret = get_piece_data(&data, &piece, line);
 		if (ret == 1 && !check_piece(&data, &piece))
 			return (game_over(&data, line, ret));
-		ft_strdel(&line);
+		//ft_strdel(&line); /* free in clean up if still exsist? */
 	}
 	wipe_down(&data, line, ret);
 	return (0);
