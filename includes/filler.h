@@ -6,7 +6,7 @@
 /*   By: ajones <ajones@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 14:15:34 by ajones            #+#    #+#             */
-/*   Updated: 2022/10/01 03:08:07 by ajones           ###   ########.fr       */
+/*   Updated: 2022/10/01 23:44:47 by ajones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct s_piece
 	int			best_val;
 	int			best_y;
 	int			best_x;
+	int			overlap;
 }				t_piece;
 
 
@@ -59,15 +60,17 @@ int				manage_piece(t_piece *piece, t_filler *data);
 
 int				check_piece(t_filler *data, t_piece *piece);
 
-int				game_over(t_filler *data, char *line, int ret);
+int				game_over(t_filler *data, t_piece *piece, char *line, int ret);
 
-void			wipe_down(t_filler *data, char *line, int ret);
+void			wipe_down(t_filler *data, t_piece *piece, char *line, int ret);
 
 void			init_piece(t_piece *piece);
 
 void			init_data(t_filler *data, t_piece *piece);
 
 void			reset_data(t_filler *data, t_piece *piece);
+
+void			free_piece(t_piece *piece);
 
 #endif
 

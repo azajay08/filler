@@ -6,13 +6,13 @@
 /*   By: ajones <ajones@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 15:03:50 by ajones            #+#    #+#             */
-/*   Updated: 2022/10/01 01:57:38 by ajones           ###   ########.fr       */
+/*   Updated: 2022/10/02 00:53:49 by ajones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/filler.h"
 
-int get_piece_data(t_filler *data, t_piece *piece, char *line)
+int	get_piece_data(t_filler *data, t_piece *piece, char *line)
 {
 	reset_data(data, piece);
 	piece->p_height = ft_atoi(ft_strchr(line, ' '));
@@ -32,7 +32,7 @@ int	get_map_data(t_filler *data, char *line)
 		data->m_width = ft_atoi(ft_strrchr(line, ' '));
 		if (!data->m_height || !data->m_width)
 			return (0);
-		return (1);
+		//return (1);
 	}
 	if (manage_map(data))
 		return (1);
@@ -41,11 +41,11 @@ int	get_map_data(t_filler *data, char *line)
 
 int	get_player_num(t_filler *data, char *line)
 {
-	char	*player;
+	//char	*player;
 
-	player = ft_strchr(line, 'p');
-	player++;
-	data->player_num = ft_atoi(player);
+	//player = ft_strchr(line, 'p') + 1;
+	//player++;
+	data->player_num = ft_atoi(ft_strchr(line, 'p') + 1);
 	if (data->player_num == 1)
 	{
 		data->goody = 'O';
@@ -64,26 +64,28 @@ int	get_player_num(t_filler *data, char *line)
 int	main(void)
 {
 	char		*line;
-	t_filler	data;
-	t_piece		piece;
+	t_filler	*data;
+	t_piece		*piece;
 	int			ret;
 
+	data = (t_filler *)malloc(sizeof(t_filler));
+	piece = (t_piece *)malloc(sizeof(t_piece));
 	ret = 1;
-	init_data(&data, &piece);
+	init_data(data, piece);
 	while (ret == 1)
 	{
-		if (get_next_line(0, &line) != 1)
+		if (get_next_line(0, &line) == -1)
 			break ;
-		if (ret == 1 && ft_strstr(line, "$$$ exec") && !data.player_num)
-			ret = get_player_num(&data, line);
+		if (ret == 1 && ft_strstr(line, "$$$ exec"))
+			ret = get_player_num(data, line);
 		if (ret == 1 && ft_strstr(line, "Plateau"))
-			ret = get_map_data(&data, line);
+			ret = get_map_data(data, line);
 		if (ret == 1 && ft_strstr(line, "Piece"))
-			ret = get_piece_data(&data, &piece, line);
-		if (ret == 1 && !check_piece(&data, &piece))
-			return (game_over(&data, line, ret));
-		//ft_strdel(&line); /* free in clean up if still exsist? */
+			ret = get_piece_data(data, piece, line);
+		if (ret == 1 && !check_piece(data, piece))
+			return (game_over(data, piece, line, ret));
+		ft_strdel(&line); /* free in clean up if still exsist? */
 	}
-	wipe_down(&data, line, ret);
+	wipe_down(data, piece, line, ret);
 	return (0);
 }

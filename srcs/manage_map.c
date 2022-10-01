@@ -6,7 +6,7 @@
 /*   By: ajones <ajones@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 14:18:14 by ajones            #+#    #+#             */
-/*   Updated: 2022/09/29 13:55:21 by ajones           ###   ########.fr       */
+/*   Updated: 2022/10/02 00:47:49 by ajones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ int	**make_map(t_filler *data)
 
 int	manage_map(t_filler *data)
 {
-	if (data->got_map == 0)
+	if (!data->map)
 		data->map = make_map(data);
 	if (!data->map)
 		return (0);

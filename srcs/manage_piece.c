@@ -6,7 +6,7 @@
 /*   By: ajones <ajones@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 00:59:12 by ajones            #+#    #+#             */
-/*   Updated: 2022/09/30 23:46:21 by ajones           ###   ########.fr       */
+/*   Updated: 2022/10/01 23:29:58 by ajones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,20 @@ int	manage_piece(t_piece *piece, t_filler *data)
 	if (!piece->p_map)
 		return (0);
 	read_piece(piece);
+	data->h_boundary = data->m_height - piece->p_height;
+	data->w_boundary = data->m_width - piece->p_width;
+	return (1);
+}
+
+/*
+int	manage_piece(t_piece *piece, t_filler *data)
+{
+	piece->p_map = make_piece(piece);
+	if (!piece->p_map)
+		return (0);
+	read_piece(piece);
 	data->h_boundary = data->m_height - piece->max_y;
 	data->w_boundary = data->m_width - piece->max_x;
 	return (1);
 }
+*/
