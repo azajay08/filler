@@ -6,7 +6,7 @@
 /*   By: ajones <ajones@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 15:03:50 by ajones            #+#    #+#             */
-/*   Updated: 2022/10/02 22:10:57 by ajones           ###   ########.fr       */
+/*   Updated: 2022/10/02 23:57:12 by ajones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int	main(void)
 	{
 		if (get_next_line(0, &line) != 1)
 			break ;
-		if (ret == 1 && ft_strstr(line, "$$$ exec"))
+		if (ret == 1 && ft_strstr(line, "$$$ exec") && data->player_num == 0)
 			ret = get_player_num(data, line);
 		if (ret == 1 && ft_strstr(line, "Plateau"))
 			ret = get_map_data(data, line);

@@ -6,7 +6,7 @@
 /*   By: ajones <ajones@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 14:43:16 by ajones            #+#    #+#             */
-/*   Updated: 2022/10/02 21:52:50 by ajones           ###   ########.fr       */
+/*   Updated: 2022/10/02 23:55:06 by ajones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	reset_data(t_filler *data, t_piece *piece)
 {
-	if (piece->p_map)
-		free_piece(piece);
+	//if (piece->p_map)
+	//	free_piece(piece);
 	piece->p_map = NULL;
 	piece->p_val = 0;
 	piece->p_height = 0;
@@ -29,6 +29,7 @@ void	reset_data(t_filler *data, t_piece *piece)
 	piece->max_x = -1;
 	piece->overlap = 0;
 	piece->got_piece = 0;
+	data->got_piece = 0;
 	data->h_boundary = 0;
 	data->w_boundary = 0;
 	data->map_val = 0;
@@ -72,8 +73,10 @@ void	wipe_down(t_filler *data, t_piece *piece, char *line, int ret)
 	int	m;
 
 	m = 0;
-	if (ret == 1)
-		ft_strdel(&line);
+	
+	if (ret == 1 && line)
+		ret = 0;
+		//ft_strdel(&line);
 	if (data->map)
 	{
 		while (m < data->m_height)
@@ -82,7 +85,7 @@ void	wipe_down(t_filler *data, t_piece *piece, char *line, int ret)
 			m++;
 		}
 		free(data->map);
-		free(data);
+		//free(data);
 	}
 	if (piece->p_map)
 		free_piece(piece);
