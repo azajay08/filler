@@ -6,7 +6,7 @@
 /*   By: ajones <ajones@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 14:18:14 by ajones            #+#    #+#             */
-/*   Updated: 2022/10/02 03:59:20 by ajones           ###   ########.fr       */
+/*   Updated: 2022/10/02 21:53:27 by ajones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,9 @@ void	read_map(t_filler *data)
 		//free(line);
 		line_count++;
 	}
+	data->p_height = ft_atoi(ft_strchr(line, ' '));
+	data->p_width = ft_atoi(ft_strrchr(line, ' '));
+	data->got_piece = 1;
 }
 
 /*

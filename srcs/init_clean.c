@@ -6,7 +6,7 @@
 /*   By: ajones <ajones@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 14:43:16 by ajones            #+#    #+#             */
-/*   Updated: 2022/10/02 03:28:34 by ajones           ###   ########.fr       */
+/*   Updated: 2022/10/02 21:52:50 by ajones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,9 @@ void	init_piece(t_piece *piece)
 void	init_data(t_filler *data, t_piece *piece)
 {
 	init_piece(piece);
+	data->got_piece = 0;
+	data->p_height = 0;
+	data->p_width = 0;
 	data->player_num = 0;
 	data->m_width = 0;
 	data->m_height = 0;
@@ -95,7 +98,7 @@ int	game_over(t_filler *data, t_piece *piece, char *line, int ret)
 	// 	ft_printf("%i %i", data->m_height, data->m_width);
 	// else
 	// 	ft_printf("6 6");
-	ft_printf("0 0\n");
+	ft_printf("0 0");
 	wipe_down(data, piece, line, ret);
 	return (0);
 }

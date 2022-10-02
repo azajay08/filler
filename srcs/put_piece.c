@@ -6,7 +6,7 @@
 /*   By: ajones <ajones@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 01:07:38 by ajones            #+#    #+#             */
-/*   Updated: 2022/10/02 03:30:23 by ajones           ###   ########.fr       */
+/*   Updated: 2022/10/02 21:58:13 by ajones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,10 +91,10 @@ int	check_piece(t_filler *data, t_piece *piece)
 
 	y = 0;
 	valid = 0;
-	while (y < data->h_boundary)
+	while (y <= data->h_boundary)
 	{
 		x = 0;
-		while (x < data->w_boundary)
+		while (x <= data->w_boundary)
 		{
 			if (is_valid(data, piece, y, x))
 			{
@@ -108,10 +108,6 @@ int	check_piece(t_filler *data, t_piece *piece)
 	if (valid == 0)
 		return (0);
 	ft_printf("%i %i", piece->best_y, piece->best_x);
-	// ft_putnbr(piece->best_y);
-	// ft_putstr(" ");
-	// ft_putnbr(piece->best_x);
-	// ft_putstr("\n");
 	return (1);
 }
 

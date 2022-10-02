@@ -6,7 +6,7 @@
 #    By: ajones <ajones@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/07 14:18:25 by ajones            #+#    #+#              #
-#    Updated: 2022/09/30 23:25:28 by ajones           ###   ########.fr        #
+#    Updated: 2022/10/02 15:15:38 by ajones           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,11 @@ all: $(NAME)
 $(NAME):
 	@make -C libft
 	@gcc $(FLAGS) -c $(F_SRC) -I $(INCL)
+	@gcc $(FLAGS) -I $(INCL) $(O_FILES) $(LIB) -o $(NAME)
+
+debug:
+	@make -C libft
+	@gcc $(FLAGS) -g -c $(F_SRC) -I $(INCL)
 	@gcc $(FLAGS) -I $(INCL) $(O_FILES) $(LIB) -o $(NAME)
 
 clean:
