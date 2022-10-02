@@ -6,7 +6,7 @@
 /*   By: ajones <ajones@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 14:15:34 by ajones            #+#    #+#             */
-/*   Updated: 2022/10/01 23:44:47 by ajones           ###   ########.fr       */
+/*   Updated: 2022/10/02 03:27:58 by ajones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ typedef struct s_piece
 	int			**p_map;
 	int			p_height;
 	int			p_width;
+	int			got_piece;
 	int			min_y;
 	int			max_y;
 	int			min_x;
@@ -71,6 +72,10 @@ void			init_data(t_filler *data, t_piece *piece);
 void			reset_data(t_filler *data, t_piece *piece);
 
 void			free_piece(t_piece *piece);
+
+int				**make_map(t_filler *data);
+
+
 
 #endif
 

@@ -6,7 +6,7 @@
 /*   By: ajones <ajones@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 00:59:12 by ajones            #+#    #+#             */
-/*   Updated: 2022/10/01 23:29:58 by ajones           ###   ########.fr       */
+/*   Updated: 2022/10/02 03:52:37 by ajones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,16 +37,16 @@ void	piece_value(t_piece *piece, int y, char *line)
 	{
 		if (line[x] == '*')
 		{
-			piece->p_val++;
+			//piece->p_val++;
 			piece->p_map[y][x] = 1;
-			if (piece->min_x == NOT_SET || x < piece->min_x)
-				piece->min_x = x;
-			if (piece->max_x == NOT_SET || x > piece->max_x)
-				piece->max_x = x;
-			if (piece->min_y == NOT_SET || y < piece->min_y)
-				piece->min_y = y;
-			if (piece->max_y == NOT_SET || y > piece->max_y)
-				piece->max_y = y;
+			// if (piece->min_x == NOT_SET || x < piece->min_x)
+			// 	piece->min_x = x;
+			// if (piece->max_x == NOT_SET || x > piece->max_x)
+			// 	piece->max_x = x;
+			// if (piece->min_y == NOT_SET || y < piece->min_y)
+			// 	piece->min_y = y;
+			// if (piece->max_y == NOT_SET || y > piece->max_y)
+			// 	piece->max_y = y;
 		}
 		x++;
 	}
@@ -74,7 +74,7 @@ int	**make_piece(t_piece *piece)
 
 	y = 0;
 	p_map = (int **)malloc(sizeof(int *) * piece->p_height);
-	if (!piece)
+	if (!p_map)
 		return (NULL);
 	while (y < piece->p_height)
 	{
@@ -100,6 +100,7 @@ int	manage_piece(t_piece *piece, t_filler *data)
 	read_piece(piece);
 	data->h_boundary = data->m_height - piece->p_height;
 	data->w_boundary = data->m_width - piece->p_width;
+	piece->got_piece = 1;
 	return (1);
 }
 

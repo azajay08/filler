@@ -6,7 +6,7 @@
 /*   By: ajones <ajones@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 15:03:50 by ajones            #+#    #+#             */
-/*   Updated: 2022/10/02 00:53:49 by ajones           ###   ########.fr       */
+/*   Updated: 2022/10/02 03:58:30 by ajones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ int	get_map_data(t_filler *data, char *line)
 		data->m_width = ft_atoi(ft_strrchr(line, ' '));
 		if (!data->m_height || !data->m_width)
 			return (0);
-		//return (1);
+		data->map = make_map(data);
+		data->got_map = 1;
 	}
 	if (manage_map(data))
 		return (1);
@@ -41,10 +42,10 @@ int	get_map_data(t_filler *data, char *line)
 
 int	get_player_num(t_filler *data, char *line)
 {
-	//char	*player;
+	// char	*player;
 
-	//player = ft_strchr(line, 'p') + 1;
-	//player++;
+	// player = ft_strchr(line, 'p') + 1;
+	// player++;
 	data->player_num = ft_atoi(ft_strchr(line, 'p') + 1);
 	if (data->player_num == 1)
 	{
@@ -74,7 +75,7 @@ int	main(void)
 	init_data(data, piece);
 	while (ret == 1)
 	{
-		if (get_next_line(0, &line) == -1)
+		if (get_next_line(0, &line) != 1)
 			break ;
 		if (ret == 1 && ft_strstr(line, "$$$ exec"))
 			ret = get_player_num(data, line);
@@ -82,9 +83,13 @@ int	main(void)
 			ret = get_map_data(data, line);
 		if (ret == 1 && ft_strstr(line, "Piece"))
 			ret = get_piece_data(data, piece, line);
-		if (ret == 1 && !check_piece(data, piece))
-			return (game_over(data, piece, line, ret));
-		ft_strdel(&line); /* free in clean up if still exsist? */
+		if (ret == 1 && piece->got_piece == 1)
+		{
+			if (!check_piece(data, piece))
+				return (game_over(data, piece, line, ret));
+		}
+		//ft_strdel(&line); /* free in clean up if still exsist? */
+		free(line);
 	}
 	wipe_down(data, piece, line, ret);
 	return (0);

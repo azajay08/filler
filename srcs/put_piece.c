@@ -6,7 +6,7 @@
 /*   By: ajones <ajones@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 01:07:38 by ajones            #+#    #+#             */
-/*   Updated: 2022/10/01 23:58:49 by ajones           ###   ########.fr       */
+/*   Updated: 2022/10/02 03:30:23 by ajones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,11 +107,11 @@ int	check_piece(t_filler *data, t_piece *piece)
 	}
 	if (valid == 0)
 		return (0);
-	//ft_printf("%d %d\n", piece->best_y, piece->best_x);
-	ft_putnbr(piece->best_y);
-	ft_putstr(" ");
-	ft_putnbr(piece->best_x);
-	ft_putstr("\n");
+	ft_printf("%i %i", piece->best_y, piece->best_x);
+	// ft_putnbr(piece->best_y);
+	// ft_putstr(" ");
+	// ft_putnbr(piece->best_x);
+	// ft_putstr("\n");
 	return (1);
 }
 

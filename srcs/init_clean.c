@@ -6,7 +6,7 @@
 /*   By: ajones <ajones@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 14:43:16 by ajones            #+#    #+#             */
-/*   Updated: 2022/10/02 00:27:06 by ajones           ###   ########.fr       */
+/*   Updated: 2022/10/02 03:28:34 by ajones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void	reset_data(t_filler *data, t_piece *piece)
 	piece->min_x = -1;
 	piece->max_x = -1;
 	piece->overlap = 0;
+	piece->got_piece = 0;
 	data->h_boundary = 0;
 	data->w_boundary = 0;
 	data->map_val = 0;
@@ -47,6 +48,7 @@ void	init_piece(t_piece *piece)
 	piece->min_x = -1;
 	piece->max_x = -1;
 	piece->overlap = 0;
+	piece->got_piece = 0;
 }
 
 void	init_data(t_filler *data, t_piece *piece)
@@ -87,12 +89,14 @@ void	wipe_down(t_filler *data, t_piece *piece, char *line, int ret)
 int	game_over(t_filler *data, t_piece *piece, char *line, int ret)
 {
 	/* printf statement for the 0, 0 coords to say im out the game */
-	wipe_down(data, piece, line, ret);
+	
 	//ft_printf("0 0\n");
-	ft_putnbr(0);
-	ft_putstr(" ");
-	ft_putnbr(0);
-	ft_putstr("\n");
+	// if (data->map == NULL)
+	// 	ft_printf("%i %i", data->m_height, data->m_width);
+	// else
+	// 	ft_printf("6 6");
+	ft_printf("0 0\n");
+	wipe_down(data, piece, line, ret);
 	return (0);
 }
 
