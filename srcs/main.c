@@ -6,7 +6,7 @@
 /*   By: ajones <ajones@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 15:03:50 by ajones            #+#    #+#             */
-/*   Updated: 2022/10/03 22:20:29 by ajones           ###   ########.fr       */
+/*   Updated: 2022/10/04 00:42:26 by ajones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,8 +95,7 @@ int	main(void)
 	while (get_next_line(0, &line) > 0)
 	{
 		if (!check_line(data, piece, line))
-			wipe_down(data, piece, line);
+			return (wipe_down(data, piece, line));
 	}
-	wipe_down(data, piece, line);
-	return (0);
+	return (wipe_down(data, piece, line));
 }

@@ -6,7 +6,7 @@
 /*   By: ajones <ajones@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 14:15:34 by ajones            #+#    #+#             */
-/*   Updated: 2022/10/03 21:41:45 by ajones           ###   ########.fr       */
+/*   Updated: 2022/10/04 00:54:04 by ajones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,60 +25,37 @@ typedef struct s_piece
 	int			**p_map;
 	int			p_height;
 	int			p_width;
-	int			got_piece;
 	int			best_val;
 	int			best_y;
 	int			best_x;
 	int			overlap;
-	int			not_valid;
 }				t_piece;
-
 
 typedef struct s_filler
 {
+	int			**map;
 	int			player_num;
 	char		goody;
 	char		baddy;
 	int			m_height;
 	int			m_width;
-	int			got_map;
-	int			**map;
 	int			map_val;
 	int			h_boundary;
 	int			w_boundary;
-	int			p_height;
-	int			p_width;
-	int			got_piece;
 }				t_filler;
 
 int				main(void);
-
-int				manage_map(t_filler *data);
-
-void			set_heatmap(t_filler *data);
-
-int				manage_piece(t_piece *piece, t_filler *data, char *line);
-
-int				check_piece(t_filler *data, t_piece *piece);
-
-int				game_over(t_filler *data, t_piece *piece, char *line);
-
-void			wipe_down(t_filler *data, t_piece *piece, char *line);
-
-void			init_piece(t_piece *piece);
-
-void			init_data(t_filler *data, t_piece *piece);
-
-void			reset_data(t_filler *data, t_piece *piece);
-
-void			free_piece(t_piece *piece);
-
 int				**make_map(t_filler *data);
-
-int				**make_piece(t_piece *piece);
-
-void			piece_value(t_piece *piece, int y, char *line);
-
 void			read_map(t_filler *data);
+void			set_heatmap(t_filler *data);
+void			init_piece(t_piece *piece);
+void			init_data(t_filler *data, t_piece *piece);
+void			reset_data(t_filler *data, t_piece *piece);
+int				manage_piece(t_piece *piece, t_filler *data, char *line);
+int				**make_piece(t_piece *piece);
+void			piece_value(t_piece *piece, int y, char *line);
+void			free_piece(t_piece *piece);
+int				check_piece(t_filler *data, t_piece *piece);
+int				wipe_down(t_filler *data, t_piece *piece, char *line);
 
 #endif

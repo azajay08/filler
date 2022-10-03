@@ -6,7 +6,7 @@
 /*   By: ajones <ajones@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 00:59:12 by ajones            #+#    #+#             */
-/*   Updated: 2022/10/03 21:44:40 by ajones           ###   ########.fr       */
+/*   Updated: 2022/10/04 00:46:21 by ajones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,5 @@ int	manage_piece(t_piece *piece, t_filler *data, char *line)
 	read_piece(piece, line);
 	data->h_boundary = data->m_height - piece->p_height;
 	data->w_boundary = data->m_width - piece->p_width;
-	piece->got_piece = 1;
 	return (1);
 }
