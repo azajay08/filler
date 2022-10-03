@@ -6,7 +6,7 @@
 /*   By: ajones <ajones@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 14:18:14 by ajones            #+#    #+#             */
-/*   Updated: 2022/10/02 22:54:03 by ajones           ###   ########.fr       */
+/*   Updated: 2022/10/03 20:28:40 by ajones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,25 +45,21 @@ void	map_value(t_filler *data, int y, char *line)
 void	read_map(t_filler *data)
 {
 	char	*line;
+	char	*temp;
 	int		line_count;
 
 	line_count = 0;
 	get_next_line(0, &line);
-	//ft_strdel(&line);
-	free(line);
-	while (get_next_line(0, &line) > 0 && line_count < data->m_height)
+	ft_strdel(&line);
+	//free(line);
+	while (line_count < data->m_height && get_next_line(0, &line) > 0)
 	{
+		temp = line;
 		line = ft_strchr(line, ' ') + 1;
 		map_value(data, line_count, line);
-		//ft_strdel(&line);
+		ft_strdel(&temp);
 		//free(line);
 		line_count++;
-	}
-	if (ft_strstr(line, "Piece"))
-	{
-		data->p_height = ft_atoi(ft_strchr(line, ' '));
-		data->p_width = ft_atoi(ft_strrchr(line, ' '));
-		data->got_piece = 1;
 	}
 }
 

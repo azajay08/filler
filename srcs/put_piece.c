@@ -6,7 +6,7 @@
 /*   By: ajones <ajones@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 01:07:38 by ajones            #+#    #+#             */
-/*   Updated: 2022/10/02 23:13:46 by ajones           ###   ########.fr       */
+/*   Updated: 2022/10/03 20:40:54 by ajones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,15 @@ void	free_piece(t_piece *piece)
 	int	p;
 
 	p = 0;
-	while (p < piece->p_height)
+	if (piece->p_map)
 	{
-		free(piece->p_map[p]);
-		p++;
+		while (p < piece->p_height)
+		{
+			free(piece->p_map[p]);
+			p++;
+		}
+		free(piece->p_map);
 	}
-	free(piece->p_map);
 }
 
 void	best_values(t_filler *data, t_piece *piece, int y, int x)
@@ -106,8 +109,13 @@ int	check_piece(t_filler *data, t_piece *piece)
 		y++;
 	}
 	if (valid == 0)
+	{
+		piece->not_valid = 1;
+		ft_printf("0 0\n");
 		return (0);
+	}
 	ft_printf("%i %i\n", piece->best_y, piece->best_x);
+	reset_data(data, piece);
 	return (1);
 }
 

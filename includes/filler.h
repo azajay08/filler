@@ -6,7 +6,7 @@
 /*   By: ajones <ajones@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 14:15:34 by ajones            #+#    #+#             */
-/*   Updated: 2022/10/02 22:23:08 by ajones           ###   ########.fr       */
+/*   Updated: 2022/10/03 20:37:36 by ajones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,11 @@ typedef struct s_piece
 	int			p_height;
 	int			p_width;
 	int			got_piece;
-	int			min_y;
-	int			max_y;
-	int			min_x;
-	int			max_x;
-	int			p_val;
 	int			best_val;
 	int			best_y;
 	int			best_x;
 	int			overlap;
+	int			not_valid;
 }				t_piece;
 
 
@@ -50,8 +46,6 @@ typedef struct s_filler
 	int			map_val;
 	int			h_boundary;
 	int			w_boundary;
-	int			p_height;
-	int			p_width;
 	int			got_piece;
 }				t_filler;
 
@@ -61,13 +55,11 @@ int				manage_map(t_filler *data);
 
 void			set_heatmap(t_filler *data);
 
-int				manage_piece(t_piece *piece, t_filler *data);
+int				manage_piece(t_piece *piece, t_filler *data, char *line);
 
 int				check_piece(t_filler *data, t_piece *piece);
 
-int				game_over(t_filler *data, t_piece *piece, char *line, int ret);
-
-void			wipe_down(t_filler *data, t_piece *piece, char *line, int ret);
+void			wipe_down(t_filler *data, t_piece *piece, char *line);
 
 void			init_piece(t_piece *piece);
 
@@ -78,6 +70,10 @@ void			reset_data(t_filler *data, t_piece *piece);
 void			free_piece(t_piece *piece);
 
 int				**make_map(t_filler *data);
+
+int				**make_piece(t_piece *piece);
+
+void			piece_value(t_piece *piece, int y, char *line);
 
 
 
