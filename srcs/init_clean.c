@@ -6,7 +6,7 @@
 /*   By: ajones <ajones@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 14:43:16 by ajones            #+#    #+#             */
-/*   Updated: 2022/10/03 20:39:19 by ajones           ###   ########.fr       */
+/*   Updated: 2022/10/03 21:14:31 by ajones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ void	init_data(t_filler *data, t_piece *piece)
 {
 	init_piece(piece);
 	data->got_piece = 0;
+	data->p_height = 0;
+	data->p_width = 0;
 	data->player_num = 0;
 	data->m_width = 0;
 	data->m_height = 0;
@@ -63,7 +65,7 @@ void	wipe_down(t_filler *data, t_piece *piece, char *line)
 	int	m;
 
 	m = 0;
-	if(data->player_num)
+	if(data->player_num || line)
 		m = 0;
 	if (piece->not_valid == 1)
 		ft_printf("0 0");

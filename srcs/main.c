@@ -6,7 +6,7 @@
 /*   By: ajones <ajones@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 15:03:50 by ajones            #+#    #+#             */
-/*   Updated: 2022/10/03 20:40:01 by ajones           ###   ########.fr       */
+/*   Updated: 2022/10/03 21:18:00 by ajones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,10 @@ int	get_piece_data(t_filler *data, t_piece *piece, char *line)
 	piece->p_width = ft_atoi(ft_strrchr(line, ' '));
 	if (!piece->p_height || !piece->p_width)
 		return (0);
-	if (manage_piece(piece, data, line))
-		return (1);
-	return (0);
+	manage_piece(piece, data, line);
+	//data->h_boundary = data->m_height - piece->p_height;
+	//data->w_boundary = data->m_width - piece->p_width;
+	return (1);
 }
 
 int	get_map_data(t_filler *data, char *line)
@@ -30,11 +31,11 @@ int	get_map_data(t_filler *data, char *line)
 	{
 		data->m_height = ft_atoi(ft_strchr(line, ' '));
 		data->m_width = ft_atoi(ft_strrchr(line, ' '));
-		if (!data->m_height || !data->m_width)
+		if (data->m_height < 1 || data->m_width < 1)
 			return (0);
 		data->map = make_map(data);
-		if (data->map == NULL)
-			return (0);
+	//	if (data->map == NULL)
+	//		return (0);
 		//data->got_map = 1;
 	}
 	if (manage_map(data))

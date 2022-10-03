@@ -6,7 +6,7 @@
 /*   By: ajones <ajones@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 14:18:14 by ajones            #+#    #+#             */
-/*   Updated: 2022/10/03 20:28:40 by ajones           ###   ########.fr       */
+/*   Updated: 2022/10/03 20:49:50 by ajones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,8 +106,8 @@ int	manage_map(t_filler *data)
 	//if (!data->map)
 	//	return (0);
 	read_map(data);
-	if (!data->map)
-		return (0);
+	//if (!data->map)
+	//	return (0);
 	set_heatmap(data);
 	//data->got_map = 1;
 	return (1);

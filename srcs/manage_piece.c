@@ -6,7 +6,7 @@
 /*   By: ajones <ajones@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 00:59:12 by ajones            #+#    #+#             */
-/*   Updated: 2022/10/03 20:40:37 by ajones           ###   ########.fr       */
+/*   Updated: 2022/10/03 21:23:38 by ajones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,9 @@ void	read_piece(t_piece *piece, char *line)
 	while (line_count < piece->p_height && get_next_line(0, &line) > 0)
 	{
 		piece_value(piece, line_count, line);
-		ft_strdel(&line);
 		line_count++;
+		//ft_strdel(&line);
+
 	}
 }
 
