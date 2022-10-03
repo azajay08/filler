@@ -6,7 +6,7 @@
 /*   By: ajones <ajones@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 15:03:50 by ajones            #+#    #+#             */
-/*   Updated: 2022/10/03 12:11:37 by ajones           ###   ########.fr       */
+/*   Updated: 2022/10/03 17:56:33 by ajones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ int	main(void)
 	init_data(data, piece);
 	while (ret == 1)
 	{
+		/* going to re structure the while loop*/
 		if (get_next_line(0, &line) != 1)
 			break ;
 		if (ret == 1 && ft_strstr(line, "$$$ exec") && data->player_num == 0)
