@@ -6,27 +6,11 @@
 /*   By: ajones <ajones@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 00:59:12 by ajones            #+#    #+#             */
-/*   Updated: 2022/10/04 00:46:21 by ajones           ###   ########.fr       */
+/*   Updated: 2022/10/04 01:21:24 by ajones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/filler.h"
-
-/* decide what value to assgin pieces
-** get the max and min x and y for the piece, use
-** as a comparison on valid places
-**
-** check everything about it being valid first
-**
-** check the overall value
-**
-** assign its overall value into best_value
-** assign coords into best_x best_y
-**
-** move along to the next valid place and only
-** replace the values if new value is smaller than
-** best_value
- */
 
 void	piece_value(t_piece *piece, int y, char *line)
 {
@@ -82,6 +66,11 @@ int	**make_piece(t_piece *piece)
 	}
 	return (p_map);
 }
+
+/*
+** This works in pretty much the same way as the map. Using the height and
+** width, it can be malloced and then have its values set accordingly
+*/
 
 int	manage_piece(t_piece *piece, t_filler *data, char *line)
 {

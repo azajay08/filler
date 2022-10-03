@@ -6,7 +6,7 @@
 /*   By: ajones <ajones@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 01:07:38 by ajones            #+#    #+#             */
-/*   Updated: 2022/10/04 00:39:49 by ajones           ###   ########.fr       */
+/*   Updated: 2022/10/04 01:31:35 by ajones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,17 @@ void	best_values(t_filler *data, t_piece *piece, int y, int x)
 	}
 }
 
+/*
+** This will check if the '*' is on top of an enemy meaning it is invalid, 
+** whether it is overlapping my own piece which would mean it is valid but
+** only if it is the only piece that overlaps, hence the overlap counter.
+** If it is none of them, then I add the value of that particular coordinate.
+** It will then be stored for later. When all the checks are done, it will
+** check if it is valid, if it is valid, it compares the total value of the
+** piece covering the map. If it is less than the previous check coordinates,
+** then the value and the coordinates will be replaced with the current best.
+*/
+
 int	check_placement(t_filler *data, t_piece *piece, int y, int x)
 {
 	if (data->map[y][x] == -2)
@@ -44,6 +55,14 @@ int	check_placement(t_filler *data, t_piece *piece, int y, int x)
 		data->map_val += data->map[y][x];
 	return (1);
 }
+
+/*
+** This function now checks all the coordinates of the piece and compares them
+** to the map using the coordinates from the previous function. Adding the
+** previous coordinates with the pieces current ones will give the correct
+** coordinates of the place in the map that is being checked. When this sees
+** a '1' meaning a '*' in the piece. It goes to the next function.
+*/
 
 int	is_valid(t_filler *data, t_piece *piece, int y_off, int x_off)
 {
@@ -71,6 +90,11 @@ int	is_valid(t_filler *data, t_piece *piece, int y_off, int x_off)
 		return (NOT_VALID);
 	return (1);
 }
+
+/*
+** This is now the solver. It will start from the beginning of the grid 
+** and check each grid coordinate that is within the boundary.
+*/
 
 int	check_piece(t_filler *data, t_piece *piece)
 {

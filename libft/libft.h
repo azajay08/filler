@@ -6,7 +6,7 @@
 /*   By: ajones <ajones@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 10:56:31 by ajones            #+#    #+#             */
-/*   Updated: 2022/10/03 21:23:54 by ajones           ###   ########.fr       */
+/*   Updated: 2022/10/04 00:57:06 by ajones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <string.h>
 # include <unistd.h>
 # include <stdlib.h>
+# include <fcntl.h>
 
 typedef struct s_list
 {

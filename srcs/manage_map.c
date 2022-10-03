@@ -6,7 +6,7 @@
 /*   By: ajones <ajones@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 14:18:14 by ajones            #+#    #+#             */
-/*   Updated: 2022/10/03 21:46:46 by ajones           ###   ########.fr       */
+/*   Updated: 2022/10/04 01:03:56 by ajones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,10 @@ void	map_value(t_filler *data, int y, char *line)
 }
 
 /*
-** This will read the lines until it is at the actual grid and disregard the 
-** numbers before the grid on each line. Because it is a 2D array, it will loop
-** through each line sending the the line to the next function.
+** read_map will go through each line and take that specific line to the next
+** function so that can be read along and each map coord can be given its
+** preliminary value. The temp here is to keep track of the line, it is then
+** freed.
 */
 
 void	read_map(t_filler *data)
@@ -90,9 +91,3 @@ int	**make_map(t_filler *data)
 	}
 	return (map);
 }
-
-/* 
-** the got_map variable is basically a switch that tells us whether
-** this is the first time coming into this function or not. If it is
-** the first time. It will be the only time that the map will be malloced 
-*/

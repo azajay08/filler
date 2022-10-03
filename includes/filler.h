@@ -6,7 +6,7 @@
 /*   By: ajones <ajones@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 14:15:34 by ajones            #+#    #+#             */
-/*   Updated: 2022/10/04 00:54:04 by ajones           ###   ########.fr       */
+/*   Updated: 2022/10/04 00:56:51 by ajones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # define NOT_SET -1
 # define NOT_VALID 0
 
-# include <fcntl.h>
 # include "../libft/libft.h"
 
 typedef struct s_piece
