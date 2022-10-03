@@ -6,7 +6,7 @@
 /*   By: ajones <ajones@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 14:15:34 by ajones            #+#    #+#             */
-/*   Updated: 2022/10/03 21:10:47 by ajones           ###   ########.fr       */
+/*   Updated: 2022/10/03 21:41:45 by ajones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,6 @@ int				**make_piece(t_piece *piece);
 
 void			piece_value(t_piece *piece, int y, char *line);
 
-
+void			read_map(t_filler *data);
 
 #endif

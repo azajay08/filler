@@ -6,32 +6,22 @@
 /*   By: ajones <ajones@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 01:07:38 by ajones            #+#    #+#             */
-/*   Updated: 2022/10/03 20:40:54 by ajones           ###   ########.fr       */
+/*   Updated: 2022/10/03 22:14:12 by ajones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/filler.h"
 
-/*void	put_coords(t_piece *piece)
+int	print_coords(t_piece *piece, int valid)
 {
-	
-}
-*/
-
-void	free_piece(t_piece *piece)
-{
-	int	p;
-
-	p = 0;
-	if (piece->p_map)
+	if (valid == 0)
 	{
-		while (p < piece->p_height)
-		{
-			free(piece->p_map[p]);
-			p++;
-		}
-		free(piece->p_map);
+		piece->not_valid = 1;
+		//ft_printf("0 0\n");
+		return (0);
 	}
+	ft_printf("%i %i\n", piece->best_y, piece->best_x);
+	return (1);
 }
 
 void	best_values(t_filler *data, t_piece *piece, int y, int x)
@@ -108,86 +98,8 @@ int	check_piece(t_filler *data, t_piece *piece)
 		}
 		y++;
 	}
-	if (valid == 0)
-	{
-		piece->not_valid = 1;
-		ft_printf("0 0\n");
+	if (!print_coords(piece, valid))
 		return (0);
-	}
-	ft_printf("%i %i\n", piece->best_y, piece->best_x);
 	reset_data(data, piece);
 	return (1);
 }
-
-/*int	check_placement(t_filler *data, t_piece *piece, int y, int x)
-{
-	if (data->map[y][x] == -2)
-		return (NOT_VALID);
-	return (1);
-}
-
-int	in_bounds(t_filler *data, int y, int x)
-{
-	if (y >= data->m_height)
-		return (0);
-	if (x >= data->m_height)
-		return (0);
-	return (1);
-}
-
-int	is_valid(t_filler *data, t_piece *piece, int y, int x)
-{
-	int	y_off;
-	int	x_off;
-	//int	valid;
-
-	//valid = 0;
-	y_off = 0;
-	while (y_off < piece->p_height)
-	{
-		x_off = 0;
-		while (x_off < piece->p_width)
-		{
-			if (piece->p_map[y_off][x_off] == 1)
-			{
-				if (in_bounds(data, y + y_off, x + x_off))  cant do this, needs to be within check placement
-				{
-					if (!check_placement(data, piece, y + y_off, x + x_off))
-						return (NOT_VALID);
-				}
-			}
-			x_off++;
-		}
-		y_off++;
-	}
-	//if (!valid)
-	//	return (0);
-	return (1);
-}
-
-int	check_piece(t_filler *data, t_piece *piece)
-{
-	int	valid;
-	int	y;
-	int	x;
-
-	y = 0;
-	valid = 0;
-	while ((y - piece->min_y) < data->h_boundary)
-	{
-		x = 0;
-		while ((x - piece->min_x) < data->w_boundary)
-		{
-			if (is_valid(data, piece, y - piece->min_y, x - piece->min_x))
-			{
-				valid++;
-			}	
-			x++;
-		}
-		y++;;
-	}
-	if (valid == 0)
-		return (0);
-	return (1);
-}
-*/

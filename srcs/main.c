@@ -6,7 +6,7 @@
 /*   By: ajones <ajones@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 15:03:50 by ajones            #+#    #+#             */
-/*   Updated: 2022/10/03 21:18:00 by ajones           ###   ########.fr       */
+/*   Updated: 2022/10/03 22:20:29 by ajones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,11 @@
 
 int	get_piece_data(t_filler *data, t_piece *piece, char *line)
 {
-	//reset_data(data, piece);
 	piece->p_height = ft_atoi(ft_strchr(line, ' '));
 	piece->p_width = ft_atoi(ft_strrchr(line, ' '));
 	if (!piece->p_height || !piece->p_width)
 		return (0);
 	manage_piece(piece, data, line);
-	//data->h_boundary = data->m_height - piece->p_height;
-	//data->w_boundary = data->m_width - piece->p_width;
 	return (1);
 }
 
@@ -34,21 +31,18 @@ int	get_map_data(t_filler *data, char *line)
 		if (data->m_height < 1 || data->m_width < 1)
 			return (0);
 		data->map = make_map(data);
-	//	if (data->map == NULL)
-	//		return (0);
-		//data->got_map = 1;
+		if (data->map == NULL)
+			return (0);
 	}
-	if (manage_map(data))
-		return (1);
-	return (0);
+	read_map(data);
+	if (!data->map)
+		return (0);
+	set_heatmap(data);
+	return (1);
 }
 
 int	get_player_num(t_filler *data, char *line)
 {
-	// char	*player;
-
-	// player = ft_strchr(line, 'p') + 1;
-	// player++;
 	data->player_num = ft_atoi(ft_strchr(line, 'p') + 1);
 	if (data->player_num == 1)
 	{
@@ -86,8 +80,7 @@ int	check_line(t_filler *data, t_piece *piece, char *line)
 			return (0);
 	}
 	ft_strdel(&line);
-	//free(line);
-	return (0);
+	return (1);
 }
 
 int	main(void)
@@ -103,8 +96,6 @@ int	main(void)
 	{
 		if (!check_line(data, piece, line))
 			wipe_down(data, piece, line);
-		//ft_strdel(&line); /* free in clean up if still exsist? */
-		//free(line);
 	}
 	wipe_down(data, piece, line);
 	return (0);

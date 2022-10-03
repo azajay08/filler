@@ -6,15 +6,30 @@
 /*   By: ajones <ajones@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 14:43:16 by ajones            #+#    #+#             */
-/*   Updated: 2022/10/03 21:14:31 by ajones           ###   ########.fr       */
+/*   Updated: 2022/10/03 22:18:25 by ajones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/filler.h"
 
+void	free_piece(t_piece *piece)
+{
+	int	p;
+
+	p = 0;
+	if (piece->p_map)
+	{
+		while (p < piece->p_height)
+		{
+			free(piece->p_map[p]);
+			p++;
+		}
+		free(piece->p_map);
+	}
+}
+
 void	reset_data(t_filler *data, t_piece *piece)
 {
-	//if (piece->p_map)
 	free_piece(piece);
 	piece->p_map = NULL;
 	piece->p_height = 0;
@@ -64,9 +79,24 @@ void	wipe_down(t_filler *data, t_piece *piece, char *line)
 {
 	int	m;
 
+	
 	m = 0;
-	if(data->player_num || line)
+	if (line)
 		m = 0;
-	if (piece->not_valid == 1)
-		ft_printf("0 0");
+	if (piece->p_map)
+		m = 0;
+	if (data->map)
+		m = 0;
+	//if (piece->not_valid == 1)
+	ft_printf("0 0\n");
+	/*{
+		while (m < data->m_height)
+		{
+			free(data->map[m]);
+			m++;
+		}
+		free(data->map);
+	}*/
+	//free(data);
+	//free(piece);
 }
