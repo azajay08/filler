@@ -6,7 +6,7 @@
 /*   By: ajones <ajones@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 01:07:38 by ajones            #+#    #+#             */
-/*   Updated: 2022/10/04 01:31:35 by ajones           ###   ########.fr       */
+/*   Updated: 2022/10/05 02:38:26 by ajones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	print_coords(t_piece *piece, int valid)
 {
-	if (valid == 0)
+	if (valid == NOT_VALID)
 		return (0);
 	ft_printf("%i %i\n", piece->best_y, piece->best_x);
 	return (1);
@@ -22,7 +22,7 @@ int	print_coords(t_piece *piece, int valid)
 
 void	best_values(t_filler *data, t_piece *piece, int y, int x)
 {
-	if (piece->best_val == -1 || data->map_val < piece->best_val)
+	if (piece->best_val == NOT_SET || data->map_val < piece->best_val)
 	{
 		piece->best_val = data->map_val;
 		piece->best_y = y;
@@ -119,7 +119,7 @@ int	check_piece(t_filler *data, t_piece *piece)
 		y++;
 	}
 	if (!print_coords(piece, valid))
-		return (0);
+		return (NOT_VALID);
 	reset_data(data, piece);
 	return (1);
 }
