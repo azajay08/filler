@@ -6,7 +6,7 @@
 /*   By: ajones <ajones@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 14:43:16 by ajones            #+#    #+#             */
-/*   Updated: 2022/10/04 00:45:47 by ajones           ###   ########.fr       */
+/*   Updated: 2022/10/04 14:11:41 by ajones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	free_piece(t_piece *piece)
 		}
 		free(piece->p_map);
 	}
+	piece->p_map = NULL;
 }
 
 void	reset_data(t_filler *data, t_piece *piece)
@@ -84,6 +85,7 @@ int	wipe_down(t_filler *data, t_piece *piece, char *line)
 		}
 		free(data->map);
 	}
+	data->map = NULL;
 	free(data);
 	free(piece);
 	ft_printf("0 0\n");
