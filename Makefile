@@ -6,7 +6,7 @@
 #    By: ajones <ajones@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/07 14:18:25 by ajones            #+#    #+#              #
-#    Updated: 2022/10/02 15:15:38 by ajones           ###   ########.fr        #
+#    Updated: 2022/10/04 15:19:50 by ajones           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,8 @@ INCL := includes/
 LIB := libft/libft.a
 F_SRC := $(addprefix $(SRC_P), $(SRCS))
 O_FILES := $(SRCS:.c=.o)
+RED := '\033[2;3;31m'
+RESET := \033[0m
 
 all: $(NAME)
 
@@ -28,16 +30,12 @@ $(NAME):
 	@gcc $(FLAGS) -c $(F_SRC) -I $(INCL)
 	@gcc $(FLAGS) -I $(INCL) $(O_FILES) $(LIB) -o $(NAME)
 
-debug:
-	@make -C libft
-	@gcc $(FLAGS) -g -c $(F_SRC) -I $(INCL)
-	@gcc $(FLAGS) -I $(INCL) $(O_FILES) $(LIB) -o $(NAME)
-
 clean:
 	@rm -f $(O_FILES)
 	@make -C libft clean
 
 fclean: clean
+	@echo ${RED}"Removing ajones.filler...${RESET}"
 	@rm -f $(NAME)
 	@make -C libft fclean
 
