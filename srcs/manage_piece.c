@@ -6,7 +6,7 @@
 /*   By: ajones <ajones@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 00:59:12 by ajones            #+#    #+#             */
-/*   Updated: 2022/10/04 01:21:24 by ajones           ###   ########.fr       */
+/*   Updated: 2022/10/04 12:12:10 by ajones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,14 @@ void	piece_value(t_piece *piece, int y, char *line)
 void	read_piece(t_piece *piece, char *line)
 {
 	int		line_count;
+	char	*temp;
 
 	line_count = 0;
 	while (line_count < piece->p_height && get_next_line(0, &line) > 0)
 	{
+		temp = line;
 		piece_value(piece, line_count, line);
+		ft_strdel(&temp);
 		line_count++;
 	}
 }
