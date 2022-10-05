@@ -6,7 +6,7 @@
 /*   By: ajones <ajones@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 10:53:33 by ajones            #+#    #+#             */
-/*   Updated: 2022/09/05 10:53:35 by ajones           ###   ########.fr       */
+/*   Updated: 2022/10/06 02:24:34 by ajones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,12 +95,10 @@ char	*ft_ftoa(long double num, t_spec *fspec)
 
 char	*make_n_str(t_spec *fspec, long double num)
 {
-	int			i;
 	char		*str;
 	long double	tmp;
 
 	str = NULL;
-	i = 0;
 	if (fspec->min_over == 1)
 		num *= -1;
 	tmp = num * ft_power_double(10, fspec->prec);
@@ -117,7 +115,3 @@ char	*make_n_str(t_spec *fspec, long double num)
 	str = ft_ftoa(num, fspec);
 	return (str);
 }
-
-/*if mod == 5
-	//if (tmp_num - (long long)tmp_num > 0.5 && fspec->mod == 5)
-		//num = (tmp_num + 1) / ft_power_double(10, fspec->prec);*/
