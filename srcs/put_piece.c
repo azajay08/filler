@@ -6,7 +6,7 @@
 /*   By: ajones <ajones@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 01:07:38 by ajones            #+#    #+#             */
-/*   Updated: 2022/10/05 02:38:26 by ajones           ###   ########.fr       */
+/*   Updated: 2022/10/05 14:46:57 by ajones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	print_coords(t_piece *piece, int valid)
 {
 	if (valid == NOT_VALID)
-		return (0);
+		return (NOT_VALID);
 	ft_printf("%i %i\n", piece->best_y, piece->best_x);
 	return (1);
 }
