@@ -6,7 +6,7 @@
 /*   By: ajones <ajones@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 15:03:50 by ajones            #+#    #+#             */
-/*   Updated: 2022/10/05 12:41:02 by ajones           ###   ########.fr       */
+/*   Updated: 2022/10/07 16:46:18 by ajones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,14 @@ int	main(void)
 	t_piece		*piece;
 
 	data = (t_filler *)malloc(sizeof(t_filler));
+	if (!data)
+		return (0);
 	piece = (t_piece *)malloc(sizeof(t_piece));
+	if (!piece)
+	{
+		free(data);
+		return (0);
+	}
 	init_data(data, piece);
 	while (get_next_line(0, &line) > 0)
 	{
