@@ -6,7 +6,7 @@
 /*   By: ajones <ajones@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 15:03:50 by ajones            #+#    #+#             */
-/*   Updated: 2022/10/07 23:18:11 by ajones           ###   ########.fr       */
+/*   Updated: 2022/10/10 16:54:14 by ajones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,6 @@ int	get_map_data(t_filler *data, char *line)
 			return (0);
 	}
 	read_map(data);
-	if (!data->map)
-		return (0);
 	set_heatmap(data);
 	return (1);
 }
