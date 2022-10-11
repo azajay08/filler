@@ -6,7 +6,7 @@
 #    By: ajones <ajones@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/05 10:56:43 by ajones            #+#    #+#              #
-#    Updated: 2022/10/04 15:14:27 by ajones           ###   ########.fr        #
+#    Updated: 2022/10/11 12:21:08 by ajones           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,15 +39,15 @@ P_LIB := ft_printf/libftprintf.a
 all: $(NAME)
 
 $(NAME):
-	@echo ${CYAN}"Compiling libft...\n${RESET}"
+	@echo ${CYAN}"Compiling libft...${RESET}"
 	@gcc $(FLAGS) -c $(SRC)
 	@ar rc $(NAME) $(OBJ)
 	@make -C ft_printf
 	@cp $(P_LIB) $(NAME)
-	@echo ${GREEN}"Compiled successfully${RESET}\n"
+	@echo ${GREEN}"Libft compiled successfully${RESET}"
 
 clean:
-	@echo ${RED}"Removing .o files...${RESET}"
+	@echo ${RED}"Removing libft .o files...${RESET}"
 	@rm -f $(OBJ)
 	@make -C ft_printf clean
 	
