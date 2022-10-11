@@ -6,7 +6,7 @@
 #    By: ajones <ajones@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/05 10:56:43 by ajones            #+#    #+#              #
-#    Updated: 2022/10/11 12:21:08 by ajones           ###   ########.fr        #
+#    Updated: 2022/10/11 12:44:22 by ajones           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,3 +57,5 @@ fclean: clean
 	@make -C ft_printf fclean
 
 re: fclean all
+
+.PHONY := all re clean fclean make
