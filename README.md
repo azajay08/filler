@@ -8,8 +8,12 @@ Each successfully placed piece yields a number of points, the goal of the game i
 
 ## Game format
 
-In the project, you are provided with a VM (which is a ruby script), along with some pre made players. The VM controls the game, It provides each player with the updated map and a piece. The player must then read the map and give back to the VM coordinates for where to place the piece that was given to the player. When a player can no longer place any more piece or if the piece they have recieved will not fit in a valid place, the player will give the coordinates of `[0 0]`. This will then tell the VM that the player is out of the game. The game will continue with the remaining player until they cannot place any more pieces.
+In the project, you are provided with a VM (which is a ruby script), along with some pre made players. Player 1 will be aissigned `O` and Player 2 `X`. The VM controls the game, It provides each player with the updated map and a piece. The player must then read the map and give back to the VM coordinates for where to place the piece that was given to the player. When a player can no longer place any more piece or if the piece they have recieved will not fit in a valid place, the player will give the coordinates of `[0 0]`. This will then tell the VM that the player is out of the game. The game will continue with the remaining player until they cannot place any more pieces.
 
 ## Strategy
 
-My stategy was to read the map and and create a 2D integer array filled with respective values. `0` being an empty space, `-1` being one of my pieces, `-2` being the enemy pieces. Once I had the locations of where mine and the enemy pieces were, I could then create a heatmap. I did it in a way that places closest to the enemy would be a value of `1` then `2`, and so on. it would eventually look something like this..
+My stategy was to read the map and and create a 2D integer array filled with respective values. `0` being an empty space, `-1` being one of my pieces, `-2` being the enemy pieces. Once I had the locations of where mine and the enemy pieces were, I could then create a heatmap. I did it in a way that places closest to the enemy would be a value of `1` then `2`, and so on. It would eventually look something like this..
+
+
+
+<img width="372" alt="Screenshot 2022-10-12 at 13 51 12" src="https://user-images.githubusercontent.com/86073849/195326031-63d5bb13-04de-4b8f-a0ca-e79cef2fc012.png">
