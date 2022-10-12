@@ -16,7 +16,7 @@ The `.` represents and empty space whereas the `*` represents what will but plac
 
 ## Strategy
 
-My strategy was to read the map and and create a 2D integer array filled with respective values. `0` being an empty space, `-1` being one of my pieces, `-2` being the enemy pieces. Once I had the locations of where mine and the enemy pieces were, I could then create a heatmap. I did it in a way that places closest to the enemy would be a value of `1` then `2`, and so on. It would make something like this....
+My strategy is to attack the enemy and try to block them in. To do this, I have to read the map and and create a 2D integer array filled with respective values. `0` being an empty space, `-1` being one of my pieces, `-2` being the enemy pieces. Once I have the locations of where mine and the enemy pieces are, I can then create a heatmap. I do it in a way that places closest to the enemy will be a value of `1` then `2`, and so on. It will make something like this....
 
 <img width="236" alt="Screenshot 2022-10-12 at 14 03 28" src="https://user-images.githubusercontent.com/86073849/195327756-460a3f7e-7855-4cfc-a925-bee9ae8d309c.png">
 
