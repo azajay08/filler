@@ -22,4 +22,10 @@ My strategy was to read the map and and create a 2D integer array filled with re
 
 look like this ....
 
-   then this.. <img width="372" alt="Screenshot 2022-10-12 at 13 51 12" src="https://user-images.githubusercontent.com/86073849/195326031-63d5bb13-04de-4b8f-a0ca-e79cef2fc012.png">
+<img width="252" alt="Screenshot 2022-10-12 at 14 26 52" src="https://user-images.githubusercontent.com/86073849/195331079-7dbd316b-feb7-4ccb-9e7a-970dabae2766.png">
+
+then this..
+
+<img width="372" alt="Screenshot 2022-10-12 at 13 51 12" src="https://user-images.githubusercontent.com/86073849/195326031-63d5bb13-04de-4b8f-a0ca-e79cef2fc012.png">
+
+After I set the heatmap, I will then read the piece given to me. I will read it is the same way I read the map. I create a 2D int array and assign values. A `.` will be given the value `0` and the `*` will be given the value `1`. Then I will go the solver part of it. I will go along the map coordinates looking for a valid place to put the piece. If it finds a valid place, it will add up all the heatmap values within the size of that piece on the map and save them to a variable. It will check every place of the map. At the end of all that. It will go with whatever had the smallest overall value. The reason I do this is because I want to put pieces as close as possible to the enemy so that i can eventually block them in making it impossible for them to place anymore pieces.
