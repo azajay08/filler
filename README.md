@@ -8,11 +8,15 @@ Each successfully placed piece yields a number of points, the goal of the game i
 
 ## Game format
 
-In the project, you are provided with a VM (which is a ruby script), along with some pre made players. Player 1 will be aissigned `O` and Player 2 `X`. The VM controls the game, It provides each player with the updated map and a piece. The player must then read the map and give back to the VM coordinates for where to place the piece that was given to the player. When a player can no longer place any more piece or if the piece they have recieved will not fit in a valid place, the player will give the coordinates of `[0 0]`. This will then tell the VM that the player is out of the game. The game will continue with the remaining player until they cannot place any more pieces.
+In the project, you are provided with a VM (which is a ruby script), along with some pre made players. Player 1 will be aissigned `O` and Player 2 `X`. The VM controls the game, It provides each player with the updated map and a piece. The player must then read the map and give back to the VM coordinates for where to place the piece that was given to the player. When a player can no longer place any more piece or if the piece they have recieved will not fit in a valid place, the player will give the coordinates of `[0 0]`. This will then tell the VM that the player is out of the game. The game will continue with the remaining player until they cannot place any more pieces. The pieces can vary depending on the size of the map. They can look something like this ...
+
+<img width="117" alt="Screenshot 2022-10-12 at 14 14 39" src="https://user-images.githubusercontent.com/86073849/195328693-b44a52d2-a630-4e51-8b9f-6924b97926ea.png">     <img width="117" alt="Screenshot 2022-10-12 at 14 14 27" src="https://user-images.githubusercontent.com/86073849/195328735-88699323-d6b8-4b45-a23b-447215b8afba.png">
+
+The `.` represents and empty space whereas the `*` represents what will but placed on the map. They must be placed with the coordinates of starting point of the piece and not where there is a `*` within the piece.
 
 ## Strategy
 
-My stategy was to read the map and and create a 2D integer array filled with respective values. `0` being an empty space, `-1` being one of my pieces, `-2` being the enemy pieces. Once I had the locations of where mine and the enemy pieces were, I could then create a heatmap. I did it in a way that places closest to the enemy would be a value of `1` then `2`, and so on. It would make something like this....
+My strategy was to read the map and and create a 2D integer array filled with respective values. `0` being an empty space, `-1` being one of my pieces, `-2` being the enemy pieces. Once I had the locations of where mine and the enemy pieces were, I could then create a heatmap. I did it in a way that places closest to the enemy would be a value of `1` then `2`, and so on. It would make something like this....
 
 <img width="236" alt="Screenshot 2022-10-12 at 14 03 28" src="https://user-images.githubusercontent.com/86073849/195327756-460a3f7e-7855-4cfc-a925-bee9ae8d309c.png">
 
