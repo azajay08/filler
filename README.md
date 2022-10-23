@@ -29,3 +29,15 @@ then this..
 <img width="372" alt="Screenshot 2022-10-12 at 13 51 12" src="https://user-images.githubusercontent.com/86073849/195326031-63d5bb13-04de-4b8f-a0ca-e79cef2fc012.png">
 
 After I set the heatmap, I will then read the piece given to me. I will read it the same way I read the grid. I create a 2D int array and assign values. A `.` will be given the value `0` and the `*` will be given the value `1`. Then I will go the solver part of it. I will go along the grid's coordinates looking for a valid place to put the piece. If it finds a valid place, it will add up all the heatmap values within the size of that piece on the grid and save them to a variable. It will check every place of the grid. At the end of all that. It will go with whatever had the smallest overall value. The reason I do this is because I want to put pieces as close as possible to the enemy so that I can eventually block them in making it impossible for them to place anymore pieces.
+
+## Visualizer
+
+A bonus for this project is to make a visualizer. I didn't make it at the time of the project but I started learning python, so I decided to use Pygame to see what I could produce, rather than it looking all messy on the terminal. 
+
+To run the visualizer, it needs to be run with python3 and have Pygame installed. You need to pipe it at the end of the regular command used to run a normal match on in the terminal. After the pipe, run it like a python file with the correct path for example...
+`./<path/filler_vm> -f <path/map> -p1 <path/player2> -p2 <path.player2> | python3 <path/filler_vis.py>`
+
+for example from the root of the project ...
+```
+./resources/filler_vm -f resources/maps/map00 -p1 resources/players/carli.filler -p2 resources/players/grati.filler | python3 Visualizer/filler_vis.py
+```
