@@ -37,7 +37,7 @@ After I set the heatmap, I will then read the piece given to me. I will read it 
 A bonus for this project is to make a visualizer. I didn't make it at the time of the project but I started learning python, so I decided to use Pygame to see what I could produce, rather than it looking all messy on the terminal. 
 
 To run the visualizer, it needs to be run with python3 and have Pygame installed. You need to pipe it at the end of the regular command used to run a normal match on in the terminal. After the pipe, run it like a python file with the correct path for example...
-`./<path/filler_vm> -f <path/map> -p1 <path/player2> -p2 <path.player2> | python3 <path/filler_vis.py>`
+`./<path/filler_vm> -f <path/map> -p1 <path/player1> -p2 <path.player2> | python3 <path/filler_vis.py>`
 
 for example from the root of the project ...
 ```
