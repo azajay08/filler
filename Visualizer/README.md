@@ -12,7 +12,7 @@ git clone https://github.com/azajay08/Visualizer.git Visualizer
 
 
 To run the visualizer, it needs to be run with python3 and have Pygame installed. You need to pipe it at the end of the regular command used to run a normal match on in the terminal. After the pipe, run it like a python file with the correct path for example...
-`./<path/filler_vm> -f <path/map> -p1 <path/player2> -p2 <path.player2> | python3 <path/filler_vis.py>`
+`./<path/filler_vm> -f <path/map> -p1 <path/player1> -p2 <path.player2> | python3 <path/filler_vis.py>`
 
 for example from the root of the project ...
 ```
