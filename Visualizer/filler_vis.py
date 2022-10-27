@@ -8,6 +8,7 @@ from pieces import Piece
 from players import Players
 from settings import Settings
 from title import Title
+import subprocess
 
 white = (255, 255, 255)
 orange = (255, 102, 0)
@@ -33,12 +34,12 @@ class Filler:
 		self.grid = Grid(self)
 		self.score = Score(self)
 		self.piece = Piece(self)
+
+	def run_game(self):
 		self.screen.fill(self.settings.bg_colour)
 		self.title.draw_title()
 		self.score.draw_score_title()
 		self.player.draw_players()
-
-	def run_game(self):
 		pygame.mixer.music.play(-1)
 		while True:
 			self._check_events()
@@ -133,7 +134,13 @@ class Filler:
 					self.settings.delay = 0.000001
 				if event.key == pygame.K_SPACE:
 					self.pause_game()
-				
+				if event.key == pygame.K_a:
+					# To play again
+					p1_arg = str(self.settings.p1_arg)
+					p2_arg = str(self.settings.p2_arg)
+					p1 = subprocess.Popen(["./resources/filler_vm", "-f", "resources/maps/map00", "-p1", f"{p1_arg}", "-p2", f"{p2_arg}"], stdout=subprocess.PIPE)
+					subprocess.Popen(["python3", "Visualizer/filler_vis.py"], stdin=p1.stdout)
+					sys.exit()
 
 if __name__ == '__main__':
 	filler = Filler()
