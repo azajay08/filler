@@ -134,13 +134,13 @@ class Filler:
 					self.settings.delay = 0.000001
 				if event.key == pygame.K_SPACE:
 					self.pause_game()
-				if event.key == pygame.K_a:
-					# # To play again
-					# p1_arg = str(self.settings.p1_arg)
-					# p2_arg = str(self.settings.p2_arg)
-					# p1 = subprocess.Popen(["./resources/filler_vm", "-f", "resources/maps/map00", "-p1", f"{p1_arg}", "-p2", f"{p2_arg}"], stdout=subprocess.PIPE)
-					# subprocess.Popen(["python3", "Visualizer/filler_vis.py"], stdin=p1.stdout)
-					# sys.exit()
+				# if event.key == pygame.K_a:
+				# 	# To play again
+				# 	# p1_arg = str(self.settings.p1_arg)
+				# 	# p2_arg = str(self.settings.p2_arg)
+				# 	# p1 = subprocess.Popen(["./resources/filler_vm", "-f", "resources/maps/map00", "-p1", f"{p1_arg}", "-p2", f"{p2_arg}"], stdout=subprocess.PIPE)
+				# 	# subprocess.Popen(["python3", "Visualizer/filler_vis.py"], stdin=p1.stdout)
+				# 	# sys.exit()
 
 if __name__ == '__main__':
 	filler = Filler()
