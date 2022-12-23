@@ -8,6 +8,27 @@ Filler is an algorithmic game which consists of filling a grid of a known size i
 
 Each successfully placed piece yields a number of points, the goal of the game is to get the best score possible. Each player has to place as many pieces as possible while attempting to prevent their opponent from doing the same. At the end of the game, the one with the most points wins the match...
 
+As with all Hive projects, they come with restraints and limitations. We have to abide by the rules of `Norminette`. Here are some of the rules we must follow:
+
+```
+* The mandatory part must be written in C
+* 25 lines maximum per function
+* 5 functions maximum per file
+* 80 columns wide maximum
+* 5 variables per function maximum
+* For loops are forbidden
+* Declaration and an initialisation cannot be on the same line
+* A function can take 4 named parameters maximum
+* Printf is forbidden - But we can use our own version made in a previous project (ft_printf)
+* Functions allowed:
+  * write
+  * malloc
+  * free
+  * read
+  * sterror
+  * perror
+```
+
 ## Game format
 
 In the project, you are provided with a VM (which is a ruby script), along with some pre made players. Player 1 will be aissigned `O` and Player 2 `X`. The VM controls the game, It provides each player with the updated grid and a piece. The player must then read the grid and give back to the VM coordinates for where to place the piece that was given to the player. When a player can no longer place any more piece or if the piece they have recieved will not fit in a valid place, the player will give the coordinates of `[0 0]`. This will then tell the VM that the player is out of the game. The game will continue with the remaining player until they cannot place any more pieces. The pieces can vary depending on the size of the grid (`Plateau`). They can look something like this ...
