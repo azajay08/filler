@@ -53,7 +53,7 @@ then this..
 
 After I set the heatmap, I will then read the piece given to me. I will read it the same way I read the grid. I create a 2D int array and assign values. A `.` will be given the value `0` and the `*` will be given the value `1`. Then I will go the solver part of it. I will go along the grid's coordinates looking for a valid place to put the piece. If it finds a valid place, it will add up all the heatmap values within the size of that piece on the grid and save them to a variable. It will check every place of the grid. At the end of all that. It will go with whatever had the smallest overall value. The reason I do this is because I want to put pieces as close as possible to the enemy so that I can eventually block them in making it impossible for them to place anymore pieces.
 
-## Visualizer
+## Visualiser
 
 A bonus for this project is to make a visualiser. I didn't make it at the time of the project but I started learning python, so I decided to use Pygame to see what I could produce, rather than it looking all messy on the terminal. 
 
